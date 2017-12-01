@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+	<title>Capital Market Watch</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" />
+	<link rel="stylesheet" href="css/jquery.mobile.datepicker.css" />
+	<link rel="stylesheet" href="css/app.css" />
+	<link rel="stylesheet" href="css/w3.css" />
+	<script src="js/jquery-1.12.2.js" type="text/javascript" language="javascript"></script>
+	<script src="js/jquery.mobile-1.4.5.js" type="text/javascript" language="javascript"></script>
+	<script src="js/jquery.ui.datepicker.js" type="text/javascript" language="javascript"></script>
+	<script src="js/jquery.mobile.datepicker.js" type="text/javascript" language="javascript"></script>
+	<script src="js/canvasjs.min.js" type="text/javascript" language="javascript"></script>
+	<script src="js/leaflet.js" type="text/javascript" language="javascript"></script>
+	<script src="js/heartcode-canvasloader-min.js" type="text/javascript" language="javascript"></script>
+	<script src="js/app.js" type="text/javascript" language="javascript"></script>
+</head>
+<body>
+<div data-role="page" id="splashScr" class="w3 responsive" style="background: #0AFF0A;">
+<header data-role="header">
+	<h1>Market Watch</h1>
+	<a href="#UserReg">Setup</a>
+	<a href="#UsrMenu">Options</a>
+</header>
+<section data-role="content">
+	<span class="medium-text embossed-green"><center><h1>SANTRUST<br/>SECURITIES<br/>LIMITED</h1></center></span>
+	<span><center><h3>Capital Market Watch</h3></center></span>
+	<span><center>Status</center></span>
+	<span class="small-text italized"><center>Your number one StockMarket monitoring Mobile Application.</center></span>
+</section>
+<footer data-role="footer" data-position="fixed">
+	<nav data-role="navbar">
+		<ul>
+			<li><h3><a style="text-align: left;" href="http://www.santrustsecurities.com.ng/">&copy;&nbsp;2016 SANTRUST SECURITIES LIMITED</a></h3></li>
+			<li><h3><a style="text-align: right;" href="http://www.ahertl.com/">Powered by: AHERTL&trade;</a></h3></li>
+		</ul>
+	</nav>
+</footer>
+</div>
+<div data-role="page" id="UserReg">
+	<header data-role="header">
+		<h1>Account Setup</h1>
+	</header>
+	<section data-role="content">
+		<form method="post">
+			<table width="100%">
+				<tr><td colspan="2">Name:<br/><input type="text" id="txtuname" placeholder="Enter your First and Last name." required /></td></tr>
+				<tr><td colspan="2">Email:<br/><input type="email" id="txtumail" placeholder="Enter your email address." required /></td></tr>
+				<tr><td colspan="2">Mobile:<br/><input type="number" id="txtumobile" placeholder="Enter your mobile number using international format i.e. 23480****" required /></td></tr>
+				<tr><td colspan="2">&nbsp;</td></tr>
+				<tr><td width="50%">&nbsp;</td><td width="50%" align="right"><button type="button">Submit</button></td></tr>
+			</table>
+		</form>
+	</section>
+	<footer data-role="footer" data-position="fixed">
+		<nav data-role="navbar">
+		<ul>
+			<li><h3><a style="text-align: left;" href="http://www.santrustsecurities.com.ng/">&copy;&nbsp;2016 SANTRUST SECURITIES LIMITED</a></h3></li>
+			<li><h3><a style="text-align: right;" href="http://www.ahertl.com/">Powered by: AHERTL&trade;</a></h3></li>
+		</ul>
+	</nav>
+	</footer>
+</div>
+<div data-role="page" id="opt">
+	<header data-role="header">
+		<h1>Account Exists</h1>
+	</header>
+	<section data-role="content">
+		<form method="post">
+			<table width="100%">
+				<tr><td colspan="2">Which of this mean of contact do you still have access to?<br/>Select one and click Continue.</td></tr>
+				<tr>
+					<td colspan="2">
+						<input type="radio" name="ROpt" value="Mobile" />&nbsp;Mobile phone<br/>
+						<input type="radio" name="ROpt" value="Email" />&nbsp;Email Address<br/>
+					</td>
+				</tr>
+				<tr><td colspan="2">&nbsp;</td></tr>
+				<tr><td width="50%">&nbsp;</td><td width="50%"><button id="UsrOpt">Continue</button></td></tr>
+			</table>
+		</form>
+	</section>
+	<footer data-role="footer" data-position="fixed">
+		<nav data-role="navbar">
+			<ul>
+			<li><h3><a style="text-align: left;" href="http://www.santrustsecurities.com.ng/">&copy;&nbsp;2016 SANTRUST SECURITIES LIMITED</a></h3></li>
+			<li><h3><a style="text-align: right;" href="http://www.ahertl.com/">Powered by: AHERTL&trade;</a></h3></li>
+		</ul>
+		</nav>
+	</footer>
+</div>
+<div data-role="page" id="UsrCode">
+	<header data-role="header">
+		<h1>Authentication</h1>
+	</header>
+	<section data-role="content">
+		<form method="post">
+			<table width="100%">
+				<tr><td colspan="2">Enter your one time token code here.<br/>
+				<input type="number" id="usrToken" required/>
+				</td></tr>
+				<tr><td colspan="2">&nbsp;</td></tr>
+				<tr><td width="50%">&nbsp;</td><td width="2" align="right"><button id="btnTk" type="button">Submit</button></td></tr>
+			</table>
+		</form>
+	</section>
+	<footer data-role="footer" data-position="fixed">
+		<nav data-role="navbar">
+			<ul>
+			<li><h3><a style="text-align: left;" href="http://www.santrustsecurities.com.ng/">&copy;&nbsp;2016 SANTRUST SECURITIES LIMITED</a></h3></li>
+			<li><h3><a style="text-align: right;" href="http://www.ahertl.com/">Powered by: AHERTL&trade;</a></h3></li>
+		</ul>
+		</nav>
+	</footer>
+</div>
+<div data-role="page" id="UsrWait">
+	<header data-role="header">
+		<h1>Connecting...</h1>
+	</header>
+	<section>
+		<div id="canvasloader-container"></div>
+	</section>
+	<footer data-role="footer" data-position="fixed">
+		<nav data-role="navbar">
+			<ul>
+			<li><h3><a style="text-align: left;" href="http://www.santrustsecurities.com.ng/">&copy;&nbsp;2016 SANTRUST SECURITIES LIMITED</a></h3></li>
+			<li><h3><a style="text-align: right;" href="http://www.ahertl.com/">Powered by: AHERTL&trade;</a></h3></li>
+		</ul>
+		</nav>
+	</footer>
+</div>
+<div data-role="page" id="homeScr" class="w3-responsive">
+	<header data-role="header" data-position="fixed">
+		<h1>Market Indices</h1>
+		<a href="#UsrMenu" data-icon="grid" data-iconpos="notext">Menu</a>
+	</header>
+	<section data-role="content">
+	<div data-role="content" class="w3-responsive">
+		<div id="MIndex" class="w3-responsive">
+			<script>getMarketIndex();</script>			
+		</div><br/>
+		<div id="Top5" class="w3-responsive">
+			<script>getTopGainers();</script>
+		</div><br/>
+		<div id="Low5" class="w3-responsive">
+			<script>getTopLosers();</script>
+		</div>
+	</div>
+	</section>
+	<footer data-role="footer" data-position="fixed">
+		<nav data-role="navbar">
+			<ul>
+				<li><a href="#UsrMenu" data-icon="grid" data-iconpos="notext">Menu</a></li>
+				<li><a href="#favourites" data-icon="star" data-iconpos="notext">Favourite</a></li>
+				<li><a href="#settings" data-icon="gear" data-iconpos="notext">Settings</a></li>
+			</ul>
+		</nav>
+	</footer>
+</div>
+<div data-role="page" id="UsrMenu" class="w3-responsive">
+	<header data-role="header">
+		<h1>Market Watch Menu</h1>
+	</header>
+	<section data-role="content" >
+		<div class="w3-responsive">
+		<table data-role="navbar">
+			<tr>
+				<td><a href="#homeScr" data-icon="star" data-iconpos="notext">Market Indices</a></td>
+				<td><a href="#pricelist" data-icon="bullets" data-iconpos="notext">Price List</a></td>
+				<td><a href="#toptradedvalue" data-icon="bars" data-iconpos="notext">Top Traded Value</a></td>
+			</tr>
+			<tr>
+				<td><a href="#toptradedvolume" data-icon="grid" data-iconpos="notext">Top Traded Volume</a></td>
+				<td><a href="#stockperformance" data-icon="info" data-iconpos="notext">Stock Performance</a></td>
+				<!--<td width="30px"><a href="#trendanalysis" data-icon="calendar" data-iconpos="notext">Trend Analysis</a></td>-->
+			</tr>
+			<tr>
+				<!--<td width="30px"><a href="#marketnews" data-icon="shop" data-iconpos="notext">Market News</a></td>
+				<td width="30px"><a href="#marketperformance" data-icon="navigation" data-iconpos="notext">Market Performance</a></td>
+				<td width="30px"><a href="#settings" data-icon="gear" data-iconpos="notext">Settings</a></td>-->
+			</tr>
+		</table>
+		</div>
+	</section>
+</div>
+<div data-role="page" id="pricelist">
+	<header data-role="header" data-position="fixed">
+		<h1>Pricelist</h1>
+		<a href="#UsrMenu" data-icon="grid" data-iconpos="notext">Menu</a>
+	</header>
+	<section>
+	<div data-role="content" id="pricelistc" class="w3-responsive">
+		<script>getPriceList();</script>
+	</div>
+	</section>
+	<footer data-role="footer" data-position="fixed">
+		<nav data-role="navbar">
+			<ul>
+			<li><h3><a style="text-align: left;" href="http://www.santrustsecurities.com.ng/">&copy;&nbsp;2016 SANTRUST SECURITIES LIMITED</a></h3></li>
+			<li><h3><a style="text-align: right;" href="http://www.ahertl.com/">Powered by: AHERTL&trade;</a></h3></li>
+		</ul>
+		</nav>
+	</footer>
+</div>
+<div data-role="page" id="toptradedvalue">
+	<header data-role="header" data-position="fixed">
+		<h1>Top Traded by Value</h1>
+		<a href="#UsrMenu" data-icon="grid" data-iconpos="notext">Menu</a>
+	</header>
+	<section data-role="content">
+		<div id="topvalue" data-role="content">
+			<script>getTopTradedValue();</script>
+		</div>
+	</section>
+	<footer data-role="footer" data-position="fixed">
+		<nav data-role="navbar">
+			<ul>
+			<li><h3><a style="text-align: left;" href="http://www.santrustsecurities.com.ng/">&copy;&nbsp;2016 SANTRUST SECURITIES LIMITED</a></h3></li>
+			<li><h3><a style="text-align: right;" href="http://www.ahertl.com/">Powered by: AHERTL&trade;</a></h3></li>
+		</ul>
+		</nav>
+	</footer>
+</div>
+<div data-role="page" id="toptradedvolume">
+	<header data-role="header" data-position="fixed">
+		<h1>Top Traded by Volume</h1>
+		<a href="#UsrMenu" data-icon="grid" data-iconpos="notext">Menu</a>
+	</header>
+	<section data-role="content">
+		<div id="topvolume" data-role="content">
+			<script>getTopTradedVolume();</script>
+		</div>
+	</section>
+	<footer data-role="footer" data-position="fixed">
+		<nav data-role="navbar">
+			<ul>
+			<li><h3><a style="text-align: left;" href="http://www.santrustsecurities.com.ng/">&copy;&nbsp;2016 SANTRUST SECURITIES LIMITED</a></h3></li>
+			<li><h3><a style="text-align: right;" href="http://www.ahertl.com/">Powered by: AHERTL&trade;</a></h3></li>
+		</ul>
+		</nav>
+	</footer>
+</div>
+<div data-role="page" id="marketperformance">
+	<header data-role="header">
+		<h1>Market Performance</h1>
+		<a href="#UsrMenu" data-icon="grid" data-iconpos="notext">Menu</a>
+	</header>
+	<section data-role="content">Market Performance</section>
+	<footer data-role="footer" data-position="fixed">
+		<nav data-role="navbar">
+			<ul>
+			<li><h3><a style="text-align: left;" href="http://www.santrustsecurities.com.ng/">&copy;&nbsp;2016 SANTRUST SECURITIES LIMITED</a></h3></li>
+			<li><h3><a style="text-align: right;" href="http://www.ahertl.com/">Powered by: AHERTL&trade;</a></h3></li>
+		</ul>
+		</nav>
+	</footer>
+</div>
+<div data-role="page" id="stockperformance" class="w3-responsive">
+	<header data-role="header" data-position="fixed">
+		<h1>Stock Performance</h1>
+		<a href="#UsrMenu" data-icon="grid" data-iconpos="notext">Menu</a>
+	</header>
+	<section data-role="content">
+		<div id="fperf" data-role="content" class="w3-responsive">
+			<script>getStocks();</script>
+			<div class="w3-responsive">
+				<form>
+					<table class="w3-table"><tr>
+					<td width="60%">
+						<select id="stockselect" onchange="getStat();">
+							<option value="0">...Select Stock Code/Symbol...</option>	
+						</select>
+					</td>
+					<td width="40%"><input type="text" id="tradedate" data-role="date" onchange="getStat();"></td>
+					</tr></table>
+				</form>	
+			</div>
+			<div id="stockgraph" style="width:100%; height:300px"></div>
+			<!--<div id="stockshot" style="width: 100%; height: 300px;overflow: auto;"></div>-->
+		</div>
+	</section>
+	<footer data-role="footer" data-position="fixed">
+		<nav data-role="navbar">
+			<ul>
+			<li><h3><a style="text-align: left;" href="http://www.santrustsecurities.com.ng/">&copy;&nbsp;2016 SANTRUST SECURITIES LIMITED</a></h3></li>
+			<li><h3><a style="text-align: right;" href="http://www.ahertl.com/">Powered by: AHERTL&trade;</a></h3></li>
+		</ul>
+		</nav>
+	</footer>
+</div>
+<div data-role="page" id="trendanalysis">
+	<header data-role="header">
+		<h1>Trend Analysis</h1>
+		<a href="#UsrMenu" data-icon="grid" data-iconpos="notext">Menu</a>
+	</header>
+	<section data-role="content">Trend Analysis</section>
+	<footer data-role="footer" data-position="fixed">
+		<nav data-role="navbar">
+			<ul>
+			<li><h3><a style="text-align: left;" href="http://www.santrustsecurities.com.ng/">&copy;&nbsp;2016 SANTRUST SECURITIES LIMITED</a></h3></li>
+			<li><h3><a style="text-align: right;" href="http://www.ahertl.com/">Powered by: AHERTL&trade;</a></h3></li>
+		</ul>
+		</nav>
+	</footer>
+</div>
+<div data-role="page" id="marketnews">
+	<header data-role="header">
+		<h1>Market News</h1>
+		<a href="#UsrMenu" data-icon="grid" data-iconpos="notext">Menu</a>
+	</header>
+	<section data-role="content">Market News</section>
+	<footer data-role="footer" data-position="fixed">
+		<nav data-role="navbar">
+			<ul>
+			<li><h3><a style="text-align: left;" href="http://www.santrustsecurities.com.ng/">&copy;&nbsp;2016 SANTRUST SECURITIES LIMITED</a></h3></li>
+			<li><h3><a style="text-align: right;" href="http://www.ahertl.com/">Powered by: AHERTL&trade;</a></h3></li>
+		</ul>
+		</nav>
+	</footer>
+</div>
+<div data-role="page" id="favourites">
+	<header data-role="header">
+		<h1>Favourites</h1>
+		<a href="#UsrMenu" data-icon="grid" data-iconpos="notext">Menu</a>
+	</header>
+	<section data-role="content">My Favourite</section>
+	<footer data-role="footer" data-position="fixed">
+		<nav data-role="navbar">
+			<ul>
+			<li><h3><a style="text-align: left;" href="http://www.santrustsecurities.com.ng/">&copy;&nbsp;2016 SANTRUST SECURITIES LIMITED</a></h3></li>
+			<li><h3><a style="text-align: right;" href="http://www.ahertl.com/">Powered by: AHERTL&trade;</a></h3></li>
+		</ul>
+		</nav>
+	</footer>
+</div>
+<div data-role="page" id="settings">
+	<header data-role="header">
+		<h1>Settings</h1>
+		<a href="#UsrMenu" data-icon="grid" data-iconpos="notext">Menu</a>
+	</header>
+	<section data-role="content">Settings</section>
+	<footer data-role="footer" data-position="fixed">
+		<nav data-role="navbar">
+			<ul>
+			<li><h3><a style="text-align: left;" href="http://www.santrustsecurities.com.ng/">&copy;&nbsp;2016 SANTRUST SECURITIES LIMITED</a></h3></li>
+			<li><h3><a style="text-align: right;" href="http://www.ahertl.com/">Powered by: AHERTL&trade;</a></h3></li>
+		</ul>
+		</nav>
+	</footer>
+</div>
+<script>
+var cl = new CanvasLoader('canvasloader-container');
+cl.show(); // Hidden by default
+</script>
+</body>
+</html>
